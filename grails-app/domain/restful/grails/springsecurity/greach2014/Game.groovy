@@ -1,0 +1,14 @@
+package restful.grails.springsecurity.greach2014
+
+import grails.rest.Resource
+
+@Resource(uri = '/games')
+class Game {
+
+    String name
+
+    static hasMany = [categories: Category]
+
+    static constraints = {
+    }
+}
