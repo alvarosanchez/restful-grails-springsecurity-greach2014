@@ -6,14 +6,6 @@ import restful.grails.springsecurity.greach2014.Category
 // Place your Spring DSL code here
 beans = {
 
-    gamesRenderer(JsonCollectionRenderer, Game) {
-        excludes = ['class']
-    }
-
-    gameRenderer(JsonRenderer, Game) {
-        excludes = ['class']
-    }
-
     categoriesRenderer(JsonCollectionRenderer, Category) {
         excludes = ['class']
     }
