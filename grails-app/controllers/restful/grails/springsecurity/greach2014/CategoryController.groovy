@@ -12,5 +12,9 @@ class CategoryController extends RestfulController {
         super(Category)
     }
 
+    def index() {
+        respond params.gameId ? Game.get(params.gameId).categories : Category.list()
+    }
+
 
 }
