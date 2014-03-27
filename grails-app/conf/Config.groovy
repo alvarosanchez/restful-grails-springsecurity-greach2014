@@ -1,3 +1,7 @@
+import org.pac4j.oauth.client.FacebookClient
+import org.pac4j.oauth.client.Google2Client
+import org.pac4j.oauth.client.TwitterClient
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -118,4 +122,49 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    debug  'com.odobo',
+           'org.pac4j',
+           'grails.app'
+           'org.springframework.security'
 }
+
+grails {
+    plugin {
+        springsecurity {
+
+            rest {
+
+                active = true
+
+                token {
+
+                    storage {
+                        useMemcached = true
+                    }
+
+                }
+
+                oauth {
+
+                    frontendCallbackUrl = {String tokenValue -> "http://example.org#token=${tokenValue}" }
+
+                    google {
+
+                        client = Google2Client
+                        key = '1093785205845-hl3jv0rd8jfohkn55jchgmnpvdpsnal4.apps.googleusercontent.com'
+                        secret = 'sWXY3VMm4wKAGoRZg8r3ftZc'
+                        scope = Google2Client.Google2Scope.EMAIL_AND_PROFILE
+                        defaultRoles = ['ROLE_USER', 'ROLE_GOOGLE']
+
+                    }
+
+                }
+
+            }
+
+        }
+    }
+}
+
+
