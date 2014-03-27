@@ -1,19 +1,17 @@
-import grails.rest.render.json.JsonCollectionRenderer
-import grails.rest.render.json.JsonRenderer
-import restful.grails.springsecurity.greach2014.Game
+import grails.rest.render.hal.HalJsonCollectionRenderer
+import grails.rest.render.hal.HalJsonRenderer
 import restful.grails.springsecurity.greach2014.Category
+import restful.grails.springsecurity.greach2014.Game
 
 // Place your Spring DSL code here
 beans = {
 
-    categoriesRenderer(JsonCollectionRenderer, Category) {
-        excludes = ['class']
-    }
+    categoriesRenderer(HalJsonCollectionRenderer, Category)
 
-    categoryRenderer(JsonRenderer, Category) {
-        excludes = ['class']
-    }
+    categoryRenderer(HalJsonRenderer, Category)
 
+    gamesRenderer(HalJsonCollectionRenderer, Game)
 
+    gameRenderer(HalJsonRenderer, Game)
 
 }

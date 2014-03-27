@@ -6,7 +6,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class CategoryController extends RestfulController {
 
-    static responseFormats = ['json', 'xml']
+    static responseFormats = ['json', 'hal']
 
     CategoryController() {
         super(Category)

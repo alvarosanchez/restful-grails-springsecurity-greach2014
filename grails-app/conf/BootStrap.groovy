@@ -17,20 +17,6 @@ class BootStrap {
         def petsPayDay = new Game(name: "Pet's Pay Day").addToCategories(slot).save()
         def grandBlackjack = new Game(name: 'Grand Blackjack').addToCategories(card).addToCategories(table).save()
 
-        JSON.registerObjectMarshaller(Game) { Game game ->
-            [
-                id: game.id,
-                name: game.name,
-                categories: game.categories
-            ]
-        }
-
-        JSON.registerObjectMarshaller(Category) { Category category ->
-            [
-                id: category.id,
-                name: category.name
-            ]
-        }
     }
     def destroy = {
     }
