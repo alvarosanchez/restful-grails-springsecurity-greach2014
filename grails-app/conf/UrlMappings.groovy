@@ -4,6 +4,10 @@ class UrlMappings {
 
         "/categories"(resources:"category")
 
+        "/games"(resources: "game") {
+            "/categories"(resources:"category")
+        }
+
         "/$controller/$action?/$id?(.$format)?"{
             constraints {
                 // apply constraints here

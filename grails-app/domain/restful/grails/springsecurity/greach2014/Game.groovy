@@ -2,7 +2,7 @@ package restful.grails.springsecurity.greach2014
 
 import grails.rest.Resource
 
-@Resource(uri = '/games')
+@Resource
 class Game {
 
     String name
